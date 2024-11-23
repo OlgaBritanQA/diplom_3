@@ -1,5 +1,6 @@
 package org.example.tests;
 
+import io.qameta.allure.Description;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.example.pages.AuthPage;
 import org.example.pages.MainPage;
@@ -24,6 +25,7 @@ public class HeaderButtonsTest extends BaseTest {
     }
 
     //переход по клику на логотип Stellar Burgers
+    @Description("Проверка перехода на главную страницу при клике на логотип")
     @Test
     public void testStellarBurgersClick() {
         MainPage mainPage = new MainPage(driver);
@@ -37,6 +39,7 @@ public class HeaderButtonsTest extends BaseTest {
     }
 
     //переход по клику на «Конструктор»
+    @Description("Проверка перехода на главную страницу при клике на кнопку Конструктор")
     @Test
     public void testConstructorClick() {
         MainPage mainPage = new MainPage(driver);

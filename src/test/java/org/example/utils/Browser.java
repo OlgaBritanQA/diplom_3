@@ -5,6 +5,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 
+import java.nio.file.Paths;
+
 public class Browser {
     public WebDriver getDriver(String browserName) {
         if (browserName == null) {
@@ -15,9 +17,13 @@ public class Browser {
             case "chrome":
                 return new ChromeDriver();
             case "yandex":
-                System.setProperty("webdriver.chrome.driver", "C:\\Path\\to\\yandexdriver.exe");
+                System.setProperty("webdriver.chrome.driver",
+                        Paths.get("drivers", "yandexdriver.exe").toAbsolutePath().toString()
+                );
                 ChromeOptions options = new ChromeOptions();
-                options.setBinary("C:\\Path\\to\\YandexBrowser\\browser.exe");
+                options.setBinary(Paths.get("browser",
+                        "YandexBrowser\\browser.exe").toAbsolutePath().toString()
+                );
 
                 return new ChromeDriver(options);
             default:

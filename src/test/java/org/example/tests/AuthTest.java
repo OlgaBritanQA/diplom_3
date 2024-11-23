@@ -1,5 +1,6 @@
 package org.example.tests;
 
+import io.qameta.allure.Description;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.example.pages.*;
 import org.junit.Test;
@@ -29,6 +30,7 @@ public class AuthTest extends BaseTest {
     }
 
     //вход через кнопку «Личный кабинет»
+    @Description("вход через кнопку «Личный кабинет» в хедере")
     @Test
     public void testAuthPersonalAccountFlow() {
         AuthPage authPage = new AuthPage(driver);
@@ -42,6 +44,7 @@ public class AuthTest extends BaseTest {
     }
 
     //вход по кнопке «Войти в аккаунт» на главной
+    @Description("вход по кнопке «Войти в аккаунт» на главной")
     @Test
     public void testLogInFlow() {
         AuthPage authPage = new AuthPage(driver);
@@ -51,10 +54,11 @@ public class AuthTest extends BaseTest {
 
         authPageFlow(authPage, email, password);
 
-        assertTrue("Не авторизовался через хедер", mainPage.isMainPage());
+        assertTrue("Не авторизовался через «Войти в аккаунт»", mainPage.isMainPage());
     }
 
     //вход через кнопку в форме регистрации
+    @Description("вход через кнопку «Войти» в форме регистрации")
     @Test
     public void testInRegistryLogInFlow() {
         AuthPage authPage = new AuthPage(driver);
@@ -72,10 +76,11 @@ public class AuthTest extends BaseTest {
 
         authPageFlow(authPage, email, password);
 
-        assertTrue("Не авторизовался через хедер", mainPage.isMainPage());
+        assertTrue("Не авторизовался через «Войти» в форме регистрации", mainPage.isMainPage());
     }
 
     //вход через кнопку в форме восстановления пароля.
+    @Description("вход через кнопку «Войти» в форме восстановления пароля")
     @Test
     public void testInRecoverPassLogInFlow() {
         AuthPage authPage = new AuthPage(driver);
@@ -93,9 +98,10 @@ public class AuthTest extends BaseTest {
 
         authPageFlow(authPage, email, password);
 
-        assertTrue("Не авторизовался через хедер", mainPage.isMainPage());
+        assertTrue("Не авторизовался через «Войти» в форме восстановления пароля", mainPage.isMainPage());
     }
 
+    @Description("выход из аккаунта")
     @Test
     public void testLogOutFlow() {
         AuthPage authPage = new AuthPage(driver);
@@ -112,7 +118,7 @@ public class AuthTest extends BaseTest {
         profilePage.clickLogoutButton();
 
 
-        assertTrue("Не авторизовался через хедер", authPage.isAuthForm());
+        assertTrue("Не смог выйти из аккаунта", authPage.isAuthForm());
     }
 
     private void authPageFlow(AuthPage authPage, String email, String password) {

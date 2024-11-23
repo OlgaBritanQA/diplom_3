@@ -1,6 +1,6 @@
 package org.example.tests;
 
-import io.qameta.allure.Step;
+import io.qameta.allure.Description;
 import org.example.pages.AuthPage;
 import org.example.pages.MainPage;
 import org.example.pages.RegistrationPage;
@@ -53,7 +53,7 @@ public class RegisterTest extends BaseTest {
         });
     }
 
-    @Step("Успешная Регистрация")
+    @Description("Проверка успешной регистрации")
     @Test
     public void testRegisterFlow() {
         AuthPage authPage = new AuthPage(driver);
@@ -77,7 +77,7 @@ public class RegisterTest extends BaseTest {
         assertTrue("Не зарегистрировался", authPage.isAuthForm());
     }
 
-    @Step("Регистрация с некорректной длинной пароля")
+    @Description("Проверка, что нельзя зарегистрироваться с некорректной длинной пароля")
     @Test
     public void testFailRegisterFlow() {
         AuthPage authPage = new AuthPage(driver);

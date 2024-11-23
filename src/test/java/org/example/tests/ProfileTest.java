@@ -1,5 +1,6 @@
 package org.example.tests;
 
+import io.qameta.allure.Description;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.example.pages.AuthPage;
 import org.example.pages.MainPage;
@@ -31,6 +32,7 @@ public class ProfileTest extends BaseTest {
     }
 
     //вход через кнопку «Личный кабинет»
+    @Description("Проверка перехода на страницу Личного кабинета")
     @Test
     public void testAuthPersonalAccountFlow() {
         AuthPage authPage = new AuthPage(driver);

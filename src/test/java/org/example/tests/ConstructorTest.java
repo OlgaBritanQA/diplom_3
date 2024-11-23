@@ -1,5 +1,6 @@
 package org.example.tests;
 
+import io.qameta.allure.Description;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.example.pages.MainPage;
 import org.junit.Test;
@@ -28,6 +29,8 @@ public class ConstructorTest extends BaseTest {
      * потому что в html документе они сразу отображаются. Проверяю что открывается первая карточка из раздела
      * и так для всех разделов ниже.
      **/
+
+    @Description("Проверка перехода во вкладку Начинки")
     @Test
     public void testFillingSection() {
         MainPage mainPage = new MainPage(driver);
@@ -36,9 +39,10 @@ public class ConstructorTest extends BaseTest {
 
         mainPage.clickStuffingMeat();
 
-        assertTrue("Не перешло ", mainPage.isStuffingMeatCard());
+        assertTrue("Не перешло в Начинки", mainPage.isStuffingMeatCard());
     }
 
+    @Description("Проверка перехода во вкладку Соусы")
     @Test
     public void testSaucesSection() {
         MainPage mainPage = new MainPage(driver);
@@ -47,13 +51,15 @@ public class ConstructorTest extends BaseTest {
 
         mainPage.clickStuffingSauces();
 
-        assertTrue("Не перешло ", mainPage.isSaucesCard());
+        assertTrue("Не перешло в Соусы", mainPage.isSaucesCard());
     }
 
     /**
      * Здесь для проверки, что переход в секцию булки работает - сначала переходим в секцию начинки,
      * а затем возвращаемся в секцию булки
      **/
+
+    @Description("Проверка перехода во вкладку Булки")
     @Test
     public void testBunsSection() {
         MainPage mainPage = new MainPage(driver);
@@ -64,6 +70,6 @@ public class ConstructorTest extends BaseTest {
 
         mainPage.clickStuffingBuns();
 
-        assertTrue("Не перешло ", mainPage.isBunsCard());
+        assertTrue("Не перешло в Булки", mainPage.isBunsCard());
     }
 }
